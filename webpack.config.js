@@ -24,9 +24,16 @@ module.exports = {
     extensions: ['.js', 'jsx', '.ts', '.tsx']
   },
   externals: ['d3'],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      name: 'common'
+    }
+  },
   plugins: [],
   output: {
     filename: 'bundle.js',
+    chunkFilename: '[name]-[id].js',
     path: path.resolve(__dirname, 'dist')
   }
 };
